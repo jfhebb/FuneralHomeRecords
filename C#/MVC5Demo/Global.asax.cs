@@ -17,6 +17,8 @@ namespace MVC5Demo
         {
             AreaRegistration.RegisterAllAreas();
 
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<MVC5Demo.Models.IndividualsContext>());
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

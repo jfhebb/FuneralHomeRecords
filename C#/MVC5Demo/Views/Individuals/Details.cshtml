@@ -1,0 +1,57 @@
+@model MVC5Demo.Models.Individual
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>Individual</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.Balance)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Balance)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Fullname)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Fullname)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Spouse)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Spouse)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DOB)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DOB)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.DOD)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DOD)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

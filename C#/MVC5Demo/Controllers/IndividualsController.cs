@@ -1,4 +1,4 @@
-using MVC5Demo.Models;
+﻿using MVC5Demo.Models;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -6,99 +6,99 @@ using System.Web.Mvc;
 
 namespace MVC5Demo.Controllers
 {
-    public class PersonsController : Controller
+    public class IndividualsController : Controller
     {
-        private PersonsContext db = new PersonsContext();
+        private IndividualsContext db = new IndividualsContext();
 
         //
-        // GET: /Persons/
+        // GET: /Individuals/
         public ActionResult Index()
         {
-            return View(db.People.ToList());
+            return View(db.Individual.ToList());
         }
 
         //
-        // GET: /Persons/Details/5
+        // GET: /Individuals/Details/5
         public ActionResult Details(Int32 id)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Individual individual = db.Individual.Find(id);
+            if (individual == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(individual);
         }
 
         //
-        // GET: /Persons/Create
+        // GET: /Individuals/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Persons/Create
+        // POST: /Individuals/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Person person)
+        public ActionResult Create(Individual individual)
         {
             if (ModelState.IsValid)
             {
-                db.People.Add(person);
+                db.Individual.Add(individual);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(person);
+            return View(individual);
         }
 
         //
-        // GET: /Persons/Edit/5
+        // GET: /Individuals/Edit/5
         public ActionResult Edit(Int32 id)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Individual individual = db.Individual.Find(id);
+            if (individual == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(individual);
         }
 
         //
-        // POST: /Persons/Edit/5
+        // POST: /Individuals/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Person person)
+        public ActionResult Edit(Individual individual)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(person).State = EntityState.Modified;
+                db.Entry(individual).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(person);
+            return View(individual);
         }
 
         //
-        // GET: /Persons/Delete/5
+        // GET: /Individuals/Delete/5
         public ActionResult Delete(Int32 id)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Individual individual = db.Individual.Find(id);
+            if (individual == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(individual);
         }
 
         //
-        // POST: /Persons/Delete/5
+        // POST: /Individuals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Int32 id)
         {
-            Person person = db.People.Find(id);
-            db.People.Remove(person);
+            Individual individual = db.Individual.Find(id);
+            db.Individual.Remove(individual);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
