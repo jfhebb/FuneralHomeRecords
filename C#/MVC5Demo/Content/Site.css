@@ -3,6 +3,15 @@
     padding-bottom: 40px;
 }
 
+@font-face {
+    font-family: Gotham-Light;
+    src: url("fonts/Gotham-Light.otf") format("opentype");
+}
+
+* {
+    font-family: 'Gotham-Light' !important;
+}
+
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;

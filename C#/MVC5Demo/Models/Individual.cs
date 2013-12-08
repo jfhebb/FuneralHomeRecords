@@ -14,6 +14,7 @@ namespace MVC5Demo.Models
         public String Spouse { get; set; }
         [DataType(DataType.Date)]
         public String DOB { get; set; }
+        [DataType(DataType.Date)]
         public String DOD { get; set; }
     }
 }
