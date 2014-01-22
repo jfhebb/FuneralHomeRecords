@@ -42,3 +42,25 @@ input[type="checkbox"].input-validation-error {
   background-color: white;
   border-style:none;
 }
+
+.CTA {
+    width: 370px;
+}
+.CTA img {
+    float:left;
+    max-width: 100px;
+    width: 30%;
+}
+.CTA > div {
+    float: left;
+    width: 70%;
+}
+.CTA h4 {
+    margin: 0;
+    padding: 8px;
+    font-size: 1.2em;
+}
+.CTA p {
+    padding: 8px;
+    font-size: 1.0em;
+}
