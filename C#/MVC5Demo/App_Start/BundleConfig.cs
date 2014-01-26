@@ -18,7 +18,9 @@ namespace MVC5Demo
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css","~/Content/site.css","~/Content/bootstrap-responsive.css"));
+            bundles.Add(new StyleBundle("~/Content/min-css").Include("~/Content/site.css", "~/Content/style.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/site.css", "~/Content/style.css", "~/Content/bootstrap-responsive.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
