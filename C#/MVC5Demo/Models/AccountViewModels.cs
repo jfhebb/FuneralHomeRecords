@@ -2,15 +2,6 @@
 
 namespace MVC5Demo.Models 
 {
-    public class ExternalLoginConfirmationViewModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
-        public string LoginProvider { get; set; }
-    }
 
     public class ManageUserViewModel
     {

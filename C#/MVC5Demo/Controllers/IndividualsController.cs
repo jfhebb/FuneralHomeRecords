@@ -6,21 +6,41 @@ using System.Web.Mvc;
 
 namespace MVC5Demo.Controllers
 {
+    [Authorize]
     public class IndividualsController : Controller
     {
         private IndividualsContext db = new IndividualsContext();
 
         //
         // GET: /Individuals/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            ViewBag.Username = User.Identity.Name;
+            var individuals = db.Individual.ToList();
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                if (searchString.Equals("Enter your search.."))
+                {
+                    return View(db.Individual.ToList());
+                }
+
+
+                individuals = individuals.Where(individual => individual.FirstName.ToUpper().Contains(searchString.ToUpper()) ||
+                    individual.LastName.ToUpper().Contains(searchString.ToUpper())).ToList();
+                return View(individuals);
+            }
+
             return View(db.Individual.ToList());
         }
+
 
         //
         // GET: /Individuals/Details/5
         public ActionResult Details(Int32 id)
         {
+            ViewBag.Username = User.Identity.Name;
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
@@ -33,6 +53,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Create
         public ActionResult Create()
         {
+            ViewBag.Username = User.Identity.Name;
             return View();
         }
 
@@ -42,8 +63,10 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Individual individual)
         {
+            ViewBag.Username = User.Identity.Name;
             if (ModelState.IsValid)
             {
+                individual.DateAdded = DateTime.Now;
                 db.Individual.Add(individual);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -56,11 +79,13 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Edit/5
         public ActionResult Edit(Int32 id)
         {
+            ViewBag.Username = User.Identity.Name;
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
                 return HttpNotFound();
             }
+            individual.DateAdded = DateTime.Now;
             return View(individual);
         }
 
@@ -70,8 +95,10 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Individual individual)
         {
+            ViewBag.Username = User.Identity.Name;
             if (ModelState.IsValid)
             {
+                individual.DateAdded = DateTime.Now;
                 db.Entry(individual).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,6 +110,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Delete/5
         public ActionResult Delete(Int32 id)
         {
+            ViewBag.Username = User.Identity.Name;
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
@@ -97,6 +125,7 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Int32 id)
         {
+            ViewBag.Username = User.Identity.Name;
             Individual individual = db.Individual.Find(id);
             db.Individual.Remove(individual);
             db.SaveChanges();

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/min-css")
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css ">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/script.js")
+</head>
+<body>
+        <header>
+        <h1>Smiths <span>Funeral Home</span><i id="loading" class="fa fa-spinner fa-spin"></i></h1>
+        <ul>
+            <li><span>@Html.ActionLink("HELP/SUPPORT", "About", "Home")</span></li>
+            <li><span>SETTINGS</span></li>
+            <li id="profile"><span><i class="fa fa-user"></i>Kyle Hebb</span></li>
+            @using Microsoft.AspNet.Identity
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-form pull-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()"><li><span>LOG OFF</span></li></a>
+                }
+            }
+        </ul>
+    </header>
+
+    <div id="column">
+        <div id="left_column">
+            <ol>
+                <li id="selected"><span><i class="fa fa-tachometer"></i></span>
+                    <h2>@Html.ActionLink("DASHBOARD", "Index", "Home")</h2>
+                </li>
+                <li><span><i class="fa fa-users"></i></span>
+                    <h2>USER ACCOUNTS</h2>
+                </li>
+                <li><span><i class="fa fa-bars"></i></span>
+                    <h2>@Html.ActionLink("VIEW RECORDS", "Index", "Individuals")</h2>
+                </li>
+                <li><span><i class="fa fa-bar-chart-o"></i></span>
+                    <h2>ANALYTICS</h2>
+                </li>
+            </ol>
+        </div>
+        <div id="right_column">
+            <div id="load_bar"></div>
+            <div id="right_header">
+                <span><i class="fa fa-home"></i></span>
+                <h3>Welcome,&nbsp;  @ViewBag.Username.</h3>
+                <h3>@ViewBag.Title</h3>
+            </div>
+            <div id="dashboard" class="content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

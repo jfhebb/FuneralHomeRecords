@@ -66,6 +66,7 @@ namespace MVC5Demo.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
             return View();
         }
 
@@ -122,12 +123,14 @@ namespace MVC5Demo.Controllers
         // GET: /Account/Manage
         public async Task<ActionResult> Manage(ManageMessageId? message)
         {
+
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
             ViewBag.HasLocalPassword = await IdentityStore.HasLocalLogin(User.Identity.GetUserId());
+            ViewBag.Username = User.Identity.Name;
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
@@ -187,92 +190,11 @@ namespace MVC5Demo.Controllers
                 }
             }
 
+
             // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        //
-        // POST: /Account/ExternalLogin
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
-        {
-            // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { loginProvider = provider, ReturnUrl = returnUrl }), AuthenticationManager);
-        }
-
-        //
-        // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
-        public async Task<ActionResult> ExternalLoginCallback(string loginProvider, string returnUrl)
-        {
-            ClaimsIdentity id = await AuthenticationManager.GetExternalIdentity(HttpContext);
-            if (!AuthenticationManager.VerifyExternalIdentity(id, loginProvider))
-            {
-                return View("ExternalLoginFailure");
-            }
-
-            // Sign in this external identity if its already linked
-            if (await AuthenticationManager.SignInExternalIdentity(HttpContext, id, loginProvider)) 
-            {
-                return RedirectToLocal(returnUrl);
-            }
-            else if (User.Identity.IsAuthenticated)
-            {
-                // Try to link if the user is already signed in
-                if (await AuthenticationManager.LinkExternalIdentity(id, User.Identity.GetUserId(), loginProvider))
-                {
-                    return RedirectToLocal(returnUrl);
-                }
-                else 
-                {
-                    return View("ExternalLoginFailure");
-                }
-            }
-            else
-            {
-                // Otherwise prompt to create a local user
-                ViewBag.ReturnUrl = returnUrl;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = id.Name, LoginProvider = loginProvider });
-            }
-        }
-
-        //
-        // POST: /Account/ExternalLoginConfirmation
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Manage");
-            }
-            
-            if (ModelState.IsValid)
-            {
-                // Get the information about the user from the external login provider
-                try
-                {
-                    if (await AuthenticationManager.CreateAndSignInExternalUser(HttpContext, model.LoginProvider, new User(model.UserName)))
-                    {
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        return View("ExternalLoginFailure");
-                    }
-                }
-                catch (IdentityException e)
-                {
-                    ModelState.AddModelError("", e.Message);
-                }
-            }
-
-            ViewBag.ReturnUrl = returnUrl;
-            return View(model);
-        }
 
         //
         // POST: /Account/LogOff
@@ -284,21 +206,6 @@ namespace MVC5Demo.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-        //
-        // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        [ChildActionOnly]
-        public ActionResult ExternalLoginsList(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return (ActionResult)PartialView("_ExternalLoginsListPartial", new List<AuthenticationDescription>(AuthenticationManager.GetExternalAuthenticationTypes(HttpContext)));
-        }
 
         [ChildActionOnly]
         public ActionResult RemoveAccountList()

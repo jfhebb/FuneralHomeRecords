@@ -1,57 +1,68 @@
 @model IEnumerable<MVC5Demo.Models.Individual>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "VIEW RECORDS";
 }
 
-<h2>Index</h2>
+    <!-- @Html.ActionLink("Create New", "Create") -->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Balance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Spouse)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOD)
-        </th>
-        <th></th>
-    </tr>
+<div id="most_recent" class="content">
+    <div class="content_banner">
+        <h4>Most Recent</h4>
+        <h4><span class="fa-stack">
+            <i class="fa white fa-plus fa-stack-1x"></i></span>
+            @Html.ActionLink("Add New", "Create")
+        </h4>
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Balance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Spouse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOD)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @using (Html.BeginForm())
+    {
+            @Html.TextBox("SearchString", "Enter your search..", new { @class = "search_field"})
+            <input type="submit" class="search_field_button" value="Search" />
+    }
+    
 
-</table>
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </th>  
+            <th>
+                Actions
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink(item.LastName, "Edit", new { id=item.Id })
+            </td>
+            <td>
+                @Html.ActionLink(item.FirstName, "Edit", new { id=item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded) 
+            </td>
+            <td>
+                <i class="fa  fa-edit"></i>               
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+
+                <i class="fa  fa-user"></i>
+                @Html.ActionLink("Details", "Details", new { id=item.Id })
+
+                <i class="fa red fa-times"></i>             
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+
+            </td>
+        </tr>
+    }
+
+    </table>
+</div>

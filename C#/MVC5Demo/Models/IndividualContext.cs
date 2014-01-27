@@ -21,7 +21,10 @@ namespace MVC5Demo.Models
         {
         }
 
-        public DbSet<MVC5Demo.Models.Individual> Individual { get; set; }
+        public DbSet<MVC5Demo.Models.Individual> Individual 
+        { 
+            get; set; 
+        }
 
     }
 }

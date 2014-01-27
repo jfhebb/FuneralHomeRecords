@@ -1,17 +1,4 @@
-﻿body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
-
-@font-face {
-    font-family: Gotham-Light;
-    src: url("fonts/Gotham-Light.otf") format("opentype");
-}
-
-* {
-    font-family: 'Gotham-Light' !important;
-}
-
+﻿
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
@@ -35,32 +22,4 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
-}
-
-/* styles for removing the background from form */
-.no-color {
-  background-color: white;
-  border-style:none;
-}
-
-.CTA {
-    width: 370px;
-}
-.CTA img {
-    float:left;
-    max-width: 100px;
-    width: 30%;
-}
-.CTA > div {
-    float: left;
-    width: 70%;
-}
-.CTA h4 {
-    margin: 0;
-    padding: 8px;
-    font-size: 1.2em;
-}
-.CTA p {
-    padding: 8px;
-    font-size: 1.0em;
 }

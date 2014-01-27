@@ -2,50 +2,33 @@
 
 @{
     ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-<div class="row-fluid">
-    <div class="span6">
-        <section id="loginForm">
-            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-                <fieldset class="form-horizontal">
-                    <legend>Use a local account to log in.</legend>
-                    <div class="control-group">
-                        @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
-                        <div class="controls">
-                            @Html.TextBoxFor(m => m.UserName)
-                            @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "help-inline" })
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-                        <div class="controls">
-                            @Html.PasswordFor(m => m.Password)
-                            @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-inline" })
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <label class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-actions no-color">
-                        <input type="submit" value="Log in" class="btn" />
-                    </div>
-                </fieldset>
-            }
-        </section>
-    </div>
+<div id="login_head">
+    <h1>Smiths Funeral Home</h1>
+    <h2><i class="fa fa-briefcase"></i>&nbsp;&nbsp;&nbsp; Management</h2>
 </div>
+       
+<div id="login_form">
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        <h1>Sign in</h1>
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id="loginForm", @Value = "Username" })
+
+        <i class="fa fa-flag"></i>
+        @Html.PasswordFor(m => m.Password, new { @class="form-control", @Value = "Password" })
+
+        <i class="fa fa-lock"></i>
+        @Html.ValidationSummary(true)
+
+       <button type="submit">Submit</button>
+        <p>Forgot your password?</p>
+    }
+</div>
+<h4>Copyright 2014. All Rights Reserved.</h4>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

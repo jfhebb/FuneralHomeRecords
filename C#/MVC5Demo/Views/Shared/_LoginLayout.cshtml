@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/min-css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/script.js")
+</head>
+<body id="login">
+    @RenderBody()    
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

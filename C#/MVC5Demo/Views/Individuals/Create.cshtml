@@ -16,44 +16,21 @@
         <legend>Individual</legend>
 
         <div class="control-group">
-            @Html.LabelFor(model => model.Fullname, new { @class = "control-label" })
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
 			<div class="controls">
-				@Html.EditorFor(model => model.Fullname)
-				@Html.ValidationMessageFor(model => model.Fullname, null, new { @class = "help-inline" })   
+				@Html.EditorFor(model => model.LastName)
+				@Html.ValidationMessageFor(model => model.LastName, null, new { @class = "help-inline" })   
 			</div>
 		</div>
 
         <div class="control-group">
-            @Html.LabelFor(model => model.Balance, new { @class = "control-label" })
+            @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
 			<div class="controls">
-				@Html.EditorFor(model => model.Balance)
-				@Html.ValidationMessageFor(model => model.Balance, null, new { @class = "help-inline" })
+				@Html.EditorFor(model => model.FirstName)
+				@Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "help-inline" })   
 			</div>
 		</div>
 
-        <div class="control-group">
-            @Html.LabelFor(model => model.Spouse, new { @class = "control-label" })
-			<div class="controls">
-				@Html.EditorFor(model => model.Spouse)
-				@Html.ValidationMessageFor(model => model.Spouse, null, new { @class = "help-inline" })
-			</div>
-		</div>
-
-        <div class="control-group">
-            @Html.LabelFor(model => model.DOB, new { @class = "control-label" })
-			<div class="controls">
-				@Html.EditorFor(model => model.DOB)
-				@Html.ValidationMessageFor(model => model.DOB, null, new { @class = "help-inline" })
-			</div>
-		</div>
-
-        <div class="control-group">
-            @Html.LabelFor(model => model.DOD, new { @class = "control-label" })
-			<div class="controls">
-				@Html.EditorFor(model => model.DOD)
-				@Html.ValidationMessageFor(model => model.DOD, null, new { @class = "help-inline" })
-			</div>
-		</div>
 
         <div class="form-actions no-color">
             <input type="submit" value="Create" class="btn" />
