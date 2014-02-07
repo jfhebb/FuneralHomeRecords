@@ -10,17 +10,10 @@ namespace MVC5Demo.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Date Last Modified")]
         public DateTime DateAdded { get; set; }
-
         [Required]
-        [Display(Name = "Last Name")]
-        public String LastName { get; set; }
-        [Required]
-        [Display(Name = "First Name")]
-        public String FirstName { get; set; }
-        [Display(Name = "Middle Name")]
-        public String MiddleName { get; set; }
+        [Display(Name="Full Name")]
+        public String FullName { get; set; }
         [DataType(DataType.Date)]
         public String DateOfBirth { get; set; }
         [DataType(DataType.Date)]

@@ -1,6 +1,15 @@
 // JavaScript source code
 
 $(document).ready(function () {
+
+    $('.progrecss').attr('data-progrecss', 100);
+
+    $('select').on('change', function (event) {
+        var color = $('.color').val(),
+         position = $('.position').val();
+        $('#progrecss')[0].className = 'progrecss lead ' + color + ' ' + position;
+    });
+
     $("#loading").delay(1500).animate({
         opacity: 0.0
     }, 500, function () {

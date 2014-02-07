@@ -12,6 +12,42 @@ span {
 input {
     text-indent: 5px;
 }
+hr {
+    margin: 15px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid white;
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+fieldset h3 {
+    font-size: large;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+fieldset h3 i {
+    margin-right: 10px;
+}
+fieldset small {
+    display: inline-block;
+    color: #999999;
+    margin-bottom: 10px; 
+}
+.input-group {
+    margin: 10px 0 10px 0;
+}
+.input-group input {
+    margin-bottom: 0px;
+}
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 header {
     background-color: rgb(55,55,55);
@@ -264,6 +300,11 @@ header ul li {
 }
 
 
+.content fieldset {
+    padding: 20px 10px 20px 10px;
+}
+
+
 table {
     width: 100%;
     text-indent: 9px;
@@ -423,9 +464,8 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
     display: inline-block;
     font-family:'Karla', verdana, sans-serif;
     font-weight: normal;
-    background-color: #3498db;
-    border: 1px solid #3498db;
-    border-bottom: 0.3em solid #2980b9;
+    background-color: rgb(97,168,220);
+    border: 1px solid rgb(97,168,220);
     color: #fff;
     text-decoration: none;
     width: 244px;
@@ -433,12 +473,14 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
     height: 35px;
     line-height: 30px;
 }
-
 .search_field_button:hover {
-    background-color: #1c72ac;
-    border-color: #1c72ac;
+    background-color: #3692d0;
+    border-color: #3692d0;
     text-decoration: none;
-    border-bottom-color: #0d5382;
+}
+.datePicker {
+    font-size: 0.8em;
+    text-indent: 4px;
 }
 
 .green {
@@ -452,6 +494,47 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
     float: right;
 }
 
+.margin-t-b {
+    margin: 15px 0 15px 0;
+}
+.margin-l-r {
+    margin: 0 15px 0 15px;
+}
+
+.padding-l-5 {
+    padding-left: 5%;
+}
+.padding-l-10 {
+    padding-left: 10%;
+}
+.padding-r-5 {
+    padding-right: 5%;
+}
+.padding-r-10 {
+    padding-right: 10%;
+}
+.padding-l-r-5 {
+    padding: 0 2.5% 0 2.5%;
+}
+
+.background-bla {
+    background-color: rgb(55,55,55);
+}
+.background-blu {
+    background-color: rgb(97,168,220);
+}
+
+.width-45 {
+    width: 45%;
+}
+.width-50 {
+    width:50%;
+}
+
+
+.four-tenth {
+    width: 40%;
+}
 .half {
     width: 50%;
 }

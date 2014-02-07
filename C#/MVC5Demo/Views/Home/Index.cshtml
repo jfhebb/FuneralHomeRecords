@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
+
 <div class="half dashboardBlock">
     <span><i class="fa fa-list-alt"></i></span>
     <h4>@Html.ActionLink("Add Record", "Create","Individuals")</h4>
@@ -39,9 +40,9 @@
         @foreach (var item in Model) 
         {
             <tr>
-                <td> @Html.ActionLink(item.LastName, "Edit","Individuals", new { id=item.Id },null)</td>
-                <td> @Html.ActionLink(item.FirstName, "Edit","Individuals", new { id=item.Id },null) </td>
+                <td> @Html.ActionLink(item.FullName, "Edit","Individuals", new { id=item.Id },null)</td>
                 <td> @Html.DisplayFor(modelItem => item.DateAdded) </td>
+                <td></td>
             </tr>  
         }
     </table>

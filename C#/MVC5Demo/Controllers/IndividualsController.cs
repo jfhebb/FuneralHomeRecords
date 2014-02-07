@@ -27,8 +27,8 @@ namespace MVC5Demo.Controllers
                 }
 
 
-                individuals = individuals.Where(individual => individual.FirstName.ToUpper().Contains(searchString.ToUpper()) ||
-                    individual.LastName.ToUpper().Contains(searchString.ToUpper())).ToList();
+                individuals = individuals.Where(individual => individual.FullName.ToUpper().Contains(searchString.ToUpper()) ||
+                    individual.FullName.ToUpper().Contains(searchString.ToUpper())).ToList();
                 return View(individuals);
             }
 

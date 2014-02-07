@@ -10,6 +10,7 @@ namespace MVC5Demo.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private static int RECORDS_RETURNED = 5;
         private IndividualsContext db = new IndividualsContext();
 
         public ActionResult Index()
@@ -18,7 +19,16 @@ namespace MVC5Demo.Controllers
 
             var individuals = db.Individual.OrderByDescending(ind => ind.DateAdded);
 
-            return View(individuals.ToList().GetRange(0,5));
+            int return_count = 0;
+            if (individuals.ToList().Count() < 5)
+            {
+                return_count = individuals.ToList().Count();
+            }
+            else
+            {
+                return_count = RECORDS_RETURNED;
+            }
+            return View(individuals.ToList().GetRange(0,return_count));
         }
 
         public ActionResult About()
