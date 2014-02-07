@@ -25,14 +25,9 @@
     <table cellspacing="0" cellpadding="0">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                @Html.DisplayNameFor(model => model.FullName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateAdded)
-            </th>  
+ 
             <th>
                 Actions
             </th>
@@ -42,14 +37,9 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.ActionLink(item.LastName, "Edit", new { id=item.Id })
+                @Html.ActionLink(item.FullName, "Edit", new { id=item.Id })
             </td>
-            <td>
-                @Html.ActionLink(item.FirstName, "Edit", new { id=item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateAdded) 
-            </td>
+
             <td>
                 <i class="fa  fa-edit"></i>               
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id })

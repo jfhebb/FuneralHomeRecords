@@ -6,6 +6,7 @@
     <title>@ViewBag.Title </title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/min-css")
+    <link href="/Content/progrecss.css" type="text/css" rel="stylesheet"/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css ">
 
     @Scripts.Render("~/bundles/jquery")
@@ -48,7 +49,7 @@
             </ol>
         </div>
         <div id="right_column">
-            <div id="load_bar"></div>
+            <div class="progrecss" data-progrecss="0"></div>
             <div id="right_header">
                 <span><i class="fa fa-home"></i></span>
                 <h3>Welcome,&nbsp;  @ViewBag.Username.</h3>

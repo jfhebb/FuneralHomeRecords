@@ -8,38 +8,188 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-
-    <fieldset class="form-horizontal">
-        <legend>Edit the record information</legend>
+    <div class="content">
+        <div class="content_banner">
+            <h4><i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;Add a new Record</h4>
+        </div>
 
         @Html.HiddenFor(model => model.Id)
+        <form>
+            <fieldset>
+                <div>
+                    <h3><i class="fa fa-github"></i>Individuals Information</h3>
+                    <small>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+                    </small>
+                </div>
+                <div class="margin-t-b">
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            @Html.TextBoxFor(model => model.FullName, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Description for full name</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Place of Birth</label>
+                            @Html.TextBoxFor(model => model.Birthplace, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter place of birth</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Date of Birth</label>
+                            @Html.TextBoxFor(model => model.DateOfBirth, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the Date of Birth</small>
+                        </div>
+                    </div>
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Health Card Number</label>
+                            @Html.TextBoxFor(model => model.HealthCard, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter a valid Health Card Number</small>
+                        </div>
+                        <div class="input-group">
+                            <label>S.I.N.</label>
+                            @Html.TextBoxFor(model => model.SIN, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter a valid SIN</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Date of Death</label>
+                            @Html.TextBoxFor(model => model.DateOfDeath, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the Date of Death</small>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <hr />
+                <div>
+                    <h3><i class="fa fa-info-circle"></i>Contact Information</h3>
+                    <small>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+                    </small>
+                </div>
+                <div class="margin-t-b">
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Street Address</label>
+                            @Html.TextBoxFor(model => model.StreetAddress, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the street address</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Mailing Address</label>
+                            @Html.TextBoxFor(model => model.MailingAddress, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the mailing address</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Home Town</label>
+                            @Html.TextBoxFor(model => model.Town, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the home town</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Province</label>
+                            @Html.TextBoxFor(model => model.Province, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the province</small>
+                        </div>
 
-        <div class="control-group">
-            @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
-			<div class="controls">
-				@Html.EditorFor(model => model.LastName)
-				@Html.ValidationMessageFor(model => model.LastName, null, new { @class = "help-inline" })
-			</div>
-		</div>
+                    </div>
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Postal Code</label>
+                            @Html.TextBoxFor(model => model.PostalCode, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the postal code</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            @Html.TextBoxFor(model => model.PhoneNumber, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the phone number</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Alternate Phone Number</label>
+                            @Html.TextBoxFor(model => model.AltPhoneNumber, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the alternate phone number</small>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <hr />
+                <div>
+                    <h3><i class="fa fa-phone-square"></i>Emergency Contact</h3>
+                    <small>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+                    </small>
+                </div>
+                <div class="margin-t-b">
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Contacts Name</label>
+                            @Html.TextBoxFor(model => model.ContactName, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts name</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Contacts Street Address</label>
+                            @Html.TextBoxFor(model => model.ContactStreetAddress, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts street address</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Contacts Mailing Address</label>
+                            @Html.TextBoxFor(model => model.ContactMailAddress, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts mailing address</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Contacts Town</label>
+                            @Html.TextBoxFor(model => model.ContactTown, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts hometown</small>
+                        </div>
 
-        <div class="control-group">
-            @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
-			<div class="controls">
-				@Html.EditorFor(model => model.FirstName)
-				@Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "help-inline" })
-			</div>
-		</div>
-
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Save" class="btn" />
-        </div>
-    </fieldset>
+                    </div>
+                    <div class="left width-45 padding-l-r-5">
+                        <div class="input-group">
+                            <label>Contacts Province</label>
+                            @Html.TextBoxFor(model => model.ContactProvince, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts province</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Contacts Postal Code</label>
+                            @Html.TextBoxFor(model => model.ContactPostalCode, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts postal code</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Contacts Phone Number</label>
+                            @Html.TextBoxFor(model => model.ContactPhoneNumber, new {@class="form-control"})
+                            @Html.ValidationMessageFor(model => model.ContactPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts phone number</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Alternate Phone Number</label>
+                            @Html.TextBoxFor(model => model.ContactAltPhoneNumber, new {@class="form-control"})
+				            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
+                            <small>Enter the contacts alternate phone number</small>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </fieldset>
+            <input type="submit" value="Submit" class="btn" />
+        </form>
+    </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
