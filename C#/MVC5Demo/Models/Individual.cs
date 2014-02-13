@@ -14,6 +14,7 @@ namespace MVC5Demo.Models
         [Required]
         [Display(Name="Full Name")]
         public String FullName { get; set; }
+        [Required]
         [DataType(DataType.Date)]
         public String DateOfBirth { get; set; }
         [DataType(DataType.Date)]

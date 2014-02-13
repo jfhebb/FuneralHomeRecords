@@ -24,36 +24,48 @@
                 </div>
                 <div class="margin-t-b">
                     <div class="left width-45 padding-l-r-5">
-                        <div class="input-group">
-                            <label>Full Name</label>
-                            @Html.TextBoxFor(model => model.FullName, new {@class="form-control",@Placeholder="Full Name"})
-                            <small>Description for full name</small>
-                        </div>
-                        <div class="input-group">
-                            <label>Place of Birth</label>
-                            @Html.TextBoxFor(model => model.Birthplace, new {@class="form-control",@Placeholder="Birthplace"})
-                            <small>Enter place of birth</small>
+                        <div class="profile_img">
+                            <img />
+                            <button class="btn background-blu color-whi margin-t left">
+                                <i class="fa fa-cloud-upload"></i>&nbsp;&nbsp;Upload
+                            </button>
                         </div>
                         <div class="input-group">
                             <label>Date of Birth</label>
                             @Html.TextBoxFor(model => model.DateOfBirth, new {@class="form-control",@Placeholder="DOB"})
+                            @Html.ValidationMessageFor(model => model.DateOfBirth, null, new { @class = "help-inline" })
                             <small>Enter the Date of Birth</small>
+                        </div>
+                        <div class="input-group">
+                            <label>Place of Birth</label>
+                            @Html.TextBoxFor(model => model.Birthplace, new {@class="form-control",@Placeholder="Birthplace"})
+                            @Html.ValidationMessageFor(model => model.Birthplace, null, new { @class = "help-inline" })
+                            <small>Enter place of birth</small>
                         </div>
                     </div>
                     <div class="left width-45 padding-l-r-5">
                         <div class="input-group">
+                            <label>Full Name</label>
+                            @Html.TextBoxFor(model => model.FullName, new {@class="form-control",@Placeholder="Full Name"})
+                            @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "help-inline" })
+                            <small>Description for full name</small>
+                        </div>
+                        <div class="input-group">
                             <label>Health Card Number</label>
                             @Html.TextBoxFor(model => model.HealthCard, new {@class="form-control",@Placeholder="Health Card Number (#)"})
+                            @Html.ValidationMessageFor(model => model.HealthCard, null, new { @class = "help-inline" })
                             <small>Enter a valid Health Card Number</small>
                         </div>
                         <div class="input-group">
                             <label>S.I.N.</label>
                             @Html.TextBoxFor(model => model.SIN, new {@class="form-control",@Placeholder="SIN"})
+                            @Html.ValidationMessageFor(model => model.SIN, null, new { @class = "help-inline" })
                             <small>Enter a valid SIN</small>
                         </div>
                         <div class="input-group">
                             <label>Date of Death</label>
                             @Html.TextBoxFor(model => model.DateOfDeath, new {@class="form-control",@Placeholder="Date of Death"})
+                            @Html.ValidationMessageFor(model => model.DateOfDeath, null, new { @class = "help-inline" })
                             <small>Enter the Date of Death</small>
                         </div>
                     </div>
@@ -71,21 +83,25 @@
                         <div class="input-group">
                             <label>Street Address</label>
                             @Html.TextBoxFor(model => model.StreetAddress, new {@class="form-control",@Placeholder="Street Address"})
+                            @Html.ValidationMessageFor(model => model.StreetAddress, null, new { @class = "help-inline" })
                             <small>Enter the street address</small>
                         </div>
                         <div class="input-group">
                             <label>Mailing Address</label>
                             @Html.TextBoxFor(model => model.MailingAddress, new {@class="form-control",@Placeholder="Mailing Address"})
+                            @Html.ValidationMessageFor(model => model.MailingAddress, null, new { @class = "help-inline" })
                             <small>Enter the mailing address</small>
                         </div>
                         <div class="input-group">
                             <label>Home Town</label>
                             @Html.TextBoxFor(model => model.Town, new {@class="form-control",@Placeholder="Home Town"})
+                            @Html.ValidationMessageFor(model => model.Town, null, new { @class = "help-inline" })
                             <small>Enter the home town</small>
                         </div>
                         <div class="input-group">
                             <label>Province</label>
                             @Html.TextBoxFor(model => model.Province, new {@class="form-control",@Placeholder="Province"})
+                            @Html.ValidationMessageFor(model => model.Province, null, new { @class = "help-inline" })
                             <small>Enter the province</small>
                         </div>
 
@@ -94,16 +110,19 @@
                         <div class="input-group">
                             <label>Postal Code</label>
                             @Html.TextBoxFor(model => model.PostalCode, new {@class="form-control",@Placeholder="Postal Code"})
+                            @Html.ValidationMessageFor(model => model.PostalCode, null, new { @class = "help-inline" })
                             <small>Enter the postal code</small>
                         </div>
                         <div class="input-group">
                             <label>Phone Number</label>
                             @Html.TextBoxFor(model => model.PhoneNumber, new {@class="form-control",@Placeholder="Phone Number"})
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, null, new { @class = "help-inline" })
                             <small>Enter the phone number</small>
                         </div>
                         <div class="input-group">
                             <label>Alternate Phone Number</label>
                             @Html.TextBoxFor(model => model.AltPhoneNumber, new {@class="form-control",@Placeholder="Alt. Phone Number"})
+                            @Html.ValidationMessageFor(model => model.AltPhoneNumber, null, new { @class = "help-inline" })
                             <small>Enter the alternate phone number</small>
                         </div>
                     </div>
@@ -121,21 +140,25 @@
                         <div class="input-group">
                             <label>Name</label>
                             @Html.TextBoxFor(model => model.ContactName, new {@class="form-control",@Placeholder="Name"})
+                            @Html.ValidationMessageFor(model => model.ContactName, null, new { @class = "help-inline" })
                             <small>Enter the contacts name</small>
                         </div>
                         <div class="input-group">
                             <label>Street Address</label>
                             @Html.TextBoxFor(model => model.ContactStreetAddress, new {@class="form-control",@Placeholder="Street Address"})
+                            @Html.ValidationMessageFor(model => model.ContactStreetAddress, null, new { @class = "help-inline" })
                             <small>Enter the contacts street address</small>
                         </div>
                         <div class="input-group">
                             <label>Mailing Address</label>
                             @Html.TextBoxFor(model => model.ContactMailAddress, new {@class="form-control",@Placeholder="Mail Address"})
+                            @Html.ValidationMessageFor(model => model.ContactMailAddress, null, new { @class = "help-inline" })
                             <small>Enter the contacts mailing address</small>
                         </div>
                         <div class="input-group">
                             <label>Town</label>
                             @Html.TextBoxFor(model => model.ContactTown, new {@class="form-control",@Placeholder="Town"})
+                            @Html.ValidationMessageFor(model => model.ContactTown, null, new { @class = "help-inline" })
                             <small>Enter the contacts hometown</small>
                         </div>
 
@@ -144,28 +167,37 @@
                         <div class="input-group">
                             <label>Province</label>
                             @Html.TextBoxFor(model => model.ContactProvince, new {@class="form-control",@Placeholder="Province"})
+                            @Html.ValidationMessageFor(model => model.ContactProvince, null, new { @class = "help-inline" })
                             <small>Enter the contacts province</small>
                         </div>
                         <div class="input-group">
                             <label>Postal Code</label>
                             @Html.TextBoxFor(model => model.ContactPostalCode, new {@class="form-control",@Placeholder="Postal Code"})
+                            @Html.ValidationMessageFor(model => model.ContactPostalCode, null, new { @class = "help-inline" })
                             <small>Enter the contacts postal code</small>
                         </div>
                         <div class="input-group">
                             <label>Phone Number</label>
                             @Html.TextBoxFor(model => model.ContactPhoneNumber, new {@class="form-control",@Placeholder="Phone Number"})
+                            @Html.ValidationMessageFor(model => model.ContactPhoneNumber, null, new { @class = "help-inline" })
                             <small>Enter the contacts phone number</small>
                         </div>
                         <div class="input-group">
                             <label>Phone Number</label>
                             @Html.TextBoxFor(model => model.ContactAltPhoneNumber, new {@class="form-control",@Placeholder="Alt. Phone Number"})
+                            @Html.ValidationMessageFor(model => model.ContactAltPhoneNumber, null, new { @class = "help-inline" })
                             <small>Enter the contacts alternate phone number</small>
                         </div>
                     </div>
                     <div class="clear"></div>
                 </div>
             </fieldset>
-            <input type="submit" value="Submit" class="btn" />
+            <button type="submit" class="btn background-blu margin-l color-whi right">
+                <i class="fa fa-user"></i>&nbsp;&nbsp;Submit
+            </button>
+            <button class="btn background-red color-whi right">
+                <i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete
+            </button>
         </form>
     </div>
 }

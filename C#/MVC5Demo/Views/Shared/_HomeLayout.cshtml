@@ -18,7 +18,7 @@
         <ul>
             <li><span>@Html.ActionLink("HELP/SUPPORT", "About", "Home")</span></li>
             <li><span>SETTINGS</span></li>
-            <li id="profile"><span><i class="fa fa-user"></i>Kyle Hebb</span></li>
+            <li id="profile"><span><i class="fa fa-user"></i>@ViewBag.Username</span></li>
             @using Microsoft.AspNet.Identity
             @if (Request.IsAuthenticated)
             {

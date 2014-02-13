@@ -9,8 +9,18 @@ body, html {
 span {
     font-weight:300;
 }
-input {
+.btn {
+    font-size: 1em;
+    width: 125px;
+    height: 30px;
+    text-align: center;
     text-indent: 5px;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -ms-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+    border-radius: 0 !important;
+    border: 0;
 }
 hr {
     margin: 15px;
@@ -38,7 +48,17 @@ fieldset small {
     margin-bottom: 10px; 
 }
 .input-group {
+    height: 120px;
     margin: 10px 0 10px 0;
+}
+.profile_img {
+    height: 260px;
+}
+.profile_img img {
+    margin-top: 10px;
+    width: 265px;
+    height: 200px;
+    background-color: rgb(230,230,230);
 }
 .input-group input {
     margin-bottom: 0px;
@@ -345,14 +365,16 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
 
 /* Login */
 #login {
-    background-color: #34495e;
+    background-color: rgb(55,55,55);
     height: 100%;
 }
-
+#login i {
+    color: rgb(200,200,200);
+}
 
 #login_head {
     height: 150px;
-    background-color: #34495e;
+    background-color: rgb(55,55,55);
 }
 #login_form {
     height: 400px;
@@ -370,11 +392,13 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
     text-align: center;
 }
 
+button {
+    cursor: pointer;
+}
 
 #login_form input {
 }
 #login_form i {
-    color: rgb(200,200,200);
     float: left;
     position: relative;
     top: -35px;
@@ -483,6 +507,23 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
     text-indent: 4px;
 }
 
+.field-validation-error {
+    font-size: 1.0em;
+    font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .green {
     color: rgb(90,150,60);
 }
@@ -496,6 +537,15 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
 
 .margin-t-b {
     margin: 15px 0 15px 0;
+}
+.margin-t {
+    margin-top: 10px;
+}
+.margin-l {
+    margin-left: 10px;
+}
+.margin-l-r {
+    margin-right: 10px;
 }
 .margin-l-r {
     margin: 0 15px 0 15px;
@@ -516,13 +566,36 @@ table a:active{ font-weight: bold; color: rgb(40,40,40); text-decoration: none; 
 .padding-l-r-5 {
     padding: 0 2.5% 0 2.5%;
 }
+.color-bla {
+    color: rgb(55,55,55);
+}
+.color-blu {
+    color: rgb(97,168,220);
+}
+.color-red {
+    color: red;
+}
+.background-red {
+    background-color: red;
+}
+.btn:hover .background-red {
+    background-color: darkred;
+}
 
+.btn i{
+    text-indent: 0 !important;
+}
+
+.color-whi {
+    color: white;
+}
 .background-bla {
     background-color: rgb(55,55,55);
 }
 .background-blu {
     background-color: rgb(97,168,220);
 }
+
 
 .width-45 {
     width: 45%;
