@@ -18,7 +18,8 @@
         <ul>
             <li><span>@Html.ActionLink("HELP/SUPPORT", "About", "Home")</span></li>
             <li><span>SETTINGS</span></li>
-            <li id="profile"><span><i class="fa fa-user"></i>@ViewBag.Username</span></li>
+            <li id="profile"><span><i class="fa fa-user"></i>@Html.ActionLink((string)ViewBag.Username, "Manage", "Account")</span></li>
+            
             @using Microsoft.AspNet.Identity
             @if (Request.IsAuthenticated)
             {
@@ -34,16 +35,16 @@
     <div id="column">
         <div id="left_column">
             <ol>
-                <li id="selected"><span><i class="fa fa-tachometer"></i></span>
+                <li id="@ViewBag.HomeSelected"><span><i class="fa fa-tachometer"></i></span>
                     <h2>@Html.ActionLink("DASHBOARD", "Index", "Home")</h2>
                 </li>
-                <li><span><i class="fa fa-users"></i></span>
+                <li id=""><span><i class="fa fa-users"></i></span>
                     <h2>USER ACCOUNTS</h2>
                 </li>
-                <li><span><i class="fa fa-bars"></i></span>
+                <li id="@ViewBag.IndivSelected"><span><i class="fa fa-bars"></i></span>
                     <h2>@Html.ActionLink("VIEW RECORDS", "Index", "Individuals")</h2>
                 </li>
-                <li><span><i class="fa fa-bar-chart-o"></i></span>
+                <li id=""><span><i class="fa fa-bar-chart-o"></i></span>
                     <h2>ANALYTICS</h2>
                 </li>
             </ol>

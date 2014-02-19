@@ -15,9 +15,18 @@ namespace MVC5Demo.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Username = User.Identity.Name;
-
             var individuals = db.Individual.OrderByDescending(ind => ind.DateAdded);
+
+            var recordsCurrentYear = db.Individual.Where(ind => ind.DateOfDeath.Year.Equals(DateTime.Today.Year));
+            ViewBag.recordsModifiedCurrentYear = recordsCurrentYear.Count();
+
+            float floatRecsCurrentYear = recordsCurrentYear.Count();
+            float dayOfYear = DateTime.Today.DayOfYear;
+            float projectedRecords = (floatRecsCurrentYear / dayOfYear) * 365;
+            ViewBag.totalRecords = db.Individual.Count();
+            ViewBag.projectedRecords = Convert.ToInt32(projectedRecords);
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
+
 
             int return_count = 0;
             if (individuals.ToList().Count() < 5)
@@ -33,7 +42,7 @@ namespace MVC5Demo.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             ViewBag.Message = "Your application descriptions page.";
 
             return View();
@@ -41,7 +50,7 @@ namespace MVC5Demo.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             ViewBag.Message = "Your contact page.";
 
             return View();

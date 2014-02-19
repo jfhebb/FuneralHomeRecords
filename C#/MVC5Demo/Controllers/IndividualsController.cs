@@ -15,7 +15,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/
         public ActionResult Index(string searchString)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             var individuals = db.Individual.ToList();
 
 
@@ -40,7 +40,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Details/5
         public ActionResult Details(Int32 id)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
@@ -53,7 +53,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Create
         public ActionResult Create()
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Individual individual)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             if (ModelState.IsValid)
             {
                 individual.DateAdded = DateTime.Now;
@@ -79,7 +79,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Edit/5
         public ActionResult Edit(Int32 id)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
@@ -95,7 +95,7 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Individual individual)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             if (ModelState.IsValid)
             {
                 individual.DateAdded = DateTime.Now;
@@ -110,7 +110,7 @@ namespace MVC5Demo.Controllers
         // GET: /Individuals/Delete/5
         public ActionResult Delete(Int32 id)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             Individual individual = db.Individual.Find(id);
             if (individual == null)
             {
@@ -125,7 +125,7 @@ namespace MVC5Demo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Int32 id)
         {
-            ViewBag.Username = User.Identity.Name;
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             Individual individual = db.Individual.Find(id);
             db.Individual.Remove(individual);
             db.SaveChanges();

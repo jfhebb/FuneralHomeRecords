@@ -130,8 +130,8 @@ namespace MVC5Demo.Controllers
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : "";
             ViewBag.HasLocalPassword = await IdentityStore.HasLocalLogin(User.Identity.GetUserId());
-            ViewBag.Username = User.Identity.Name;
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
+            ViewBag.ReturnUrl = Url.Action("Index","Home");
             return View();
         }
 
@@ -143,6 +143,7 @@ namespace MVC5Demo.Controllers
         {
             string userId = User.Identity.GetUserId();
             bool hasLocalLogin = await IdentityStore.HasLocalLogin(userId);
+            ViewBag.Username = User.Identity.Name.First().ToString().ToUpper() + String.Join("", User.Identity.Name.Skip(1));
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalLogin)
@@ -152,7 +153,7 @@ namespace MVC5Demo.Controllers
                     bool changePasswordSucceeded = await IdentityStore.ChangePassword(User.Identity.GetUserName(), model.OldPassword, model.NewPassword);
                     if (changePasswordSucceeded)
                     {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                        return RedirectToAction("Index","Home");
                     }
                     else
                     {

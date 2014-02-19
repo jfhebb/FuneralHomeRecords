@@ -11,19 +11,19 @@ namespace MVC5Demo.Models
         public int Id { get; set; }
 
         public DateTime DateAdded { get; set; }
-        [Required]
+        [Required(ErrorMessage="Please enter a full name.")]
         [Display(Name="Full Name")]
         public String FullName { get; set; }
-        [Required]
         [DataType(DataType.Date)]
-        public String DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         [DataType(DataType.Date)]
-        public String DateOfDeath { get; set; }
+        public DateTime DateOfDeath { get; set; }
         public String HealthCard { get; set; }
         public String SIN { get; set; }
         public String Birthplace { get; set; }
 
         public String StreetAddress { get; set; }
+       
         public String MailingAddress { get; set; }
         public String Town { get; set; }
         public String Province { get; set; }

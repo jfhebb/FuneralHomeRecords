@@ -24,11 +24,11 @@
                 </div>
                 <div class="margin-t-b">
                     <div class="left width-45 padding-l-r-5">
-                        <div class="profile_img">
-                            <img />
-                            <button class="btn background-blu color-whi margin-t left">
-                                <i class="fa fa-cloud-upload"></i>&nbsp;&nbsp;Upload
-                            </button>
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            @Html.TextBoxFor(model => model.FullName, new {@class="form-control",@Placeholder="Full Name"})
+                            @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "help-inline" })
+                            <small>Description for full name</small>
                         </div>
                         <div class="input-group">
                             <label>Date of Birth</label>
@@ -44,12 +44,6 @@
                         </div>
                     </div>
                     <div class="left width-45 padding-l-r-5">
-                        <div class="input-group">
-                            <label>Full Name</label>
-                            @Html.TextBoxFor(model => model.FullName, new {@class="form-control",@Placeholder="Full Name"})
-                            @Html.ValidationMessageFor(model => model.FullName, null, new { @class = "help-inline" })
-                            <small>Description for full name</small>
-                        </div>
                         <div class="input-group">
                             <label>Health Card Number</label>
                             @Html.TextBoxFor(model => model.HealthCard, new {@class="form-control",@Placeholder="Health Card Number (#)"})

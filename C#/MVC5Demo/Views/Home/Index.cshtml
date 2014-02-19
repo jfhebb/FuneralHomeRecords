@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "DASHBOARD";
+    ViewBag.HomeSelected = "selected";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
@@ -35,15 +36,34 @@
         <tr>
             <th>Name</th>
             <th>Date</th>
-            <th>Completed</th>
+            <th>Deceased</th>
         </tr>
         @foreach (var item in Model) 
         {
             <tr>
                 <td> @Html.ActionLink(item.FullName, "Edit","Individuals", new { id=item.Id },null)</td>
                 <td> @Html.DisplayFor(modelItem => item.DateAdded) </td>
-                <td></td>
+                <td> @Html.DisplayFor(modelItem => item.DateOfDeath) </td>
             </tr>  
         }
     </table>
+</div>
+
+<div id="stats" class="content half">
+    <div class="content_banner">
+        <h4><i class="fa fa-file-text"></i>&nbsp;&nbsp;Database Statistics</h4>
+    </div>
+    <span>
+        <h3>@ViewBag.totalRecords</h3>
+        <p>Total Records on file</p>
+    </span>
+    <span>
+        <h3>@ViewBag.recordsModifiedCurrentYear</h3>
+        <p>Deceased in the Calendar Year</p>
+    </span>
+    <span>
+        <h3>@ViewBag.projectedRecords</h3>
+        <p>Projected Yearly Total</p>
+    </span>
+    
 </div>
